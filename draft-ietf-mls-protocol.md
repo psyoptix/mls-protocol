@@ -1187,6 +1187,7 @@ struct {
 struct {
     opaque confirmation_tag<0..255>;
     opaque signature<0..2^16-1>;
+
 } MLSPlaintextCommitAuthData;
 
 interim_transcript_hash_[0] = ""; // zero-length octet string
