@@ -5,7 +5,7 @@
 Network Working Group                                          R. Barnes
 Internet-Draft                                                     Cisco
 Intended status: Informational                             B. Beurdouche
-Expires: 16 September 2021                                         Inria
+Expires: 17 September 2021                                         Inria
                                                              J. Millican
                                                                 Facebook
                                                                 E. Omara
@@ -14,7 +14,7 @@ Expires: 16 September 2021                                         Inria
                                                     University of Oxford
                                                                R. Robert
                                                                     Wire
-                                                           15 March 2021
+                                                           16 March 2021
 
 
               The Messaging Layer Security (MLS) Protocol
@@ -56,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 September 2021.
+   This Internet-Draft will expire on 17 September 2021.
 
 Copyright Notice
 
@@ -3496,7 +3496,7 @@ sender_data_nonce = ExpandWithLabel(sender_data_secret, "nonce", ciphertext_samp
 
    Whenever enough entropy has accumulated in a pool all subsequent
    values extracted from it will look as if they were sampled from a
-   truly uniform random and independant entropy source.  This holds even
+   truly uniform random and independent entropy source.  This holds even
    if an adversary can control all inputs mixed into the pool after is
    has accumulated enough entropy.  Pools can accumulate sufficient
    entropy either by being initialized using a good source of randomness
@@ -3508,8 +3508,8 @@ sender_data_nonce = ExpandWithLabel(sender_data_secret, "nonce", ciphertext_samp
    entropy must be regularly mixed in to the pool.
 
    Clients obtain inputs to mix in to their pool both from external
-   sources (such as th OS's RNG) and internal sources (i.e. exported
-   from key schedules of ongoing MLS sessions).  Mixing in internal
+   sources (such as the OS's RNG) and internal sources (i.e. exported
+   from key schedules of ongoing MLS groups).  Mixing in internal
    sources can allow clients with no local source of entropy to
    piggyback off of the entropy sources of other members in a secure
    group chat.  A pool SHOULD be shared between all MLS sessions on the
@@ -3543,9 +3543,9 @@ sender_data_nonce = ExpandWithLabel(sender_data_secret, "nonce", ciphertext_samp
    of the client's leaf in the new epoch.
 
 struct {
-        opaque group_id<0..255>;
+  opaque group_id<0..255>;
     uint64 epoch;
-        uint32 leaf_index;
+  uint32 leaf_index;
 } InternalInputContext
 
 internal_entropy =
